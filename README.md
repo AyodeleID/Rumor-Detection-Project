@@ -77,7 +77,7 @@ Overall Accuracy: 0.82
 Conclusion
 This project demonstrates the effectiveness of using machine learning for rumor detection on social media. The model can be used for various applications such as identifying misinformation, sentiment analysis, and content moderation.
 
-Contact
+Contact:
 For any questions or further information, please contact Ayodele Idowu at ayodele.idowuu@gmail.com.
 
 
