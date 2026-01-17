@@ -1,7 +1,7 @@
 # Rumor Detection Project
 
-## Project Overview
-This project involves building a machine learning model to classify tweets into different categories based on their content. The dataset used for this project is the "Rumor Detection ACL 2017" dataset, which contains tweets and their corresponding labels indicating whether they are rumors or not.
+## Overview
+This project builds a machine learning model to classify tweets into categories based on their content. It uses the Rumor Detection ACL 2017 dataset, which contains tweets labelled as True, False, Non-Rumor and Unverified.
 
 ## Objectives
 - Load and preprocess tweet data.
@@ -9,75 +9,39 @@ This project involves building a machine learning model to classify tweets into 
 - Evaluate the model's performance.
 - Deploy the model as a REST API using Flask.
 
-## Setup Instructions
+## Data
+The dataset comprises thousands of tweets annotated with one of four labels. The preprocessing pipeline includes tokenisation, stop-word removal and TF-IDF vectorisation.
 
-### Prerequisites
-- Python 3.11
-- Required Python packages (listed in `requirements.txt`)
+## Model Architecture
+The model is a standard logistic regression classifier trained on TF-IDF features. The pipeline is implemented using scikit-learn and can be replaced with more complex architectures if desired.
 
-### Installation
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/AyodeleID/Rumor-Detection-Project.git
-   cd Rumor-Detection-Project
+## Results
+| Label        | Precision | Recall | F1-Score | Support |
+|------------- |----------:|-------:|---------:|--------:|
+| False        | 0.85      | 0.79   | 0.82     | 125     |
+| Non-Rumor    | 0.73      | 0.87   | 0.79     | 103     |
+| True         | 0.85      | 0.84   | 0.85     | 112     |
+| Unverified   | 0.88      | 0.80   | 0.84     | 122     |
+| **Overall**  | -         | -      | **0.82** | -       |
 
-   Install the required packages:
-pip install -r requirements.txt
+## Using the Model
 
-Running the Code
-Train the Model and Evaluate Performance
-Run the main script to train the model and evaluate its performance:
+### Training and Evaluation
+Run `python main.py` to train the model and evaluate its performance. The script loads data, splits it into training and test sets, trains the classifier and prints the evaluation metrics.
+
+### Serving Predictions
+Start the Flask API by running:
+```sh
 python main.py
+```
+Then send a POST request to `http://127.0.0.1:5000/predict` with JSON payload:
+```json
+{"text": ["This is a new tweet to classify"]}
+```
+The API will return the predicted label.
 
-Serve the Model with Flask
-Run the Flask API to serve the model:
-python main.py
+## Conclusion
+This project demonstrates that even simple machine learning models can effectively detect rumours on social media, with an overall accuracy of 82%. Future work could explore transformer-based models and integration with real-time feeds.
 
-Making Predictions
-You can make POST requests to the API to get predictions. Here is an example using Python's requests library:
-import requests
-import json
-
-url = 'http://127.0.0.1:5000/predict'
-data = {'text': ["This is a new tweet to classify"]}
-headers = {'Content-Type': 'application/json'}
-
-response = requests.post(url, data=json.dumps(data), headers=headers)
-print(response.json())
-
-Results and Analysis
-The model achieved an overall accuracy of 82%. The detailed evaluation metrics are as follows:
-
-False:
-
-Precision: 0.85
-Recall: 0.79
-F1-Score: 0.82
-Support: 125
-Non-Rumor:
-
-Precision: 0.73
-Recall: 0.87
-F1-Score: 0.79
-Support: 103
-True:
-
-Precision: 0.85
-Recall: 0.84
-F1-Score: 0.85
-Support: 112
-Unverified:
-
-Precision: 0.88
-Recall: 0.80
-F1-Score: 0.84
-Support: 122
-Overall Accuracy: 0.82
-
-Conclusion
-This project demonstrates the effectiveness of using machine learning for rumor detection on social media. The model can be used for various applications such as identifying misinformation, sentiment analysis, and content moderation.
-
-Contact:
-For any questions or further information, please contact Ayodele Idowu at ayodele.idowuu@gmail.com.
-
-
+## Contact
+For questions or feedback, please reach out via email listed in my GitHub profile.
