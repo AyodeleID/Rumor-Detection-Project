@@ -213,8 +213,7 @@ joblib / pickle (model persistence)
 <div align="center">
 
 **Ayodele Isaiah Idowu**  
-MSc Applied Economics · Development & Agricultural Economics  
-University of Göttingen · DAAD LfA Scholar
+Economist & Data Scientist
 
 [![Website](https://img.shields.io/badge/Portfolio-ayodeleid.com-0A66C2?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ayodeleid.com)
 [![GitHub](https://img.shields.io/badge/GitHub-AyodeleID-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AyodeleID)
